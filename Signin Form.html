@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Signin Form</title>
+	<meta charset="utf-8">
+	<script>
+		function logIn_click(){
+			document.getElementById('tableSignIn').style.visibility="visible";
+			document.getElementById('tableSignUp').style.visibility="hidden";
+		}
+		
+		function signUp_click(){
+			document.getElementById('tableSignIn').style.visibility="hidden";
+			document.getElementById('tableSignUp').style.visibility="visible";
+		}
+	
+		function onLoad(){
+			document.getElementById('tableSignUp').style.visibility="hidden";
+		}
+		
+		function req(){
+			if(document.getElementById('user1').value=="")
+				document.getElementById('requ').innerHTML=" * Please fill this field.";
+			else
+			return;
+		}
+		
+		function pass_check(){
+			var pass1=document.getElementById('pass').value;
+			var pass2=document.getElementById('repass').value;
+			if(pass1==pass2){
+			return;
+			}
+			else
+			alert('The passwords do not match');
+		}
+		
+	</script>
+	<style>
+	*{
+		border-radius:5px;
+		text-decoration:none;
+		color:#282828;
+	}
+	body{
+		margin:0px auto 0px auto;
+	}
+	div{
+		margin-left:100px;
+		margin-right:100px;
+		min-width:400px;
+	}
+	
+	tr.top td{
+		border:1px solid blue;
+		width:400px;
+		text-align:center;
+	}
+	tr td{
+		border:1px solid blue;
+		width:400px;
+	}
+	
+	div.tablee{
+		margin-left:100px;
+		margin-right:100px;
+		overflow:none;
+		min-width:400px;
+	}
+	table.table1{
+		padding:20px 50px 20px 50px;
+	}
+	
+	a{
+		background-color:darkgrey;
+		font-size:x-large;
+		box-shadow:1px 1px 5px 2px black;
+	}
+	
+	
+	input{
+		height:23px;
+		margin-left:50px;
+		width:200px;
+		border:1px solid black;
+	}
+	
+	button.nutt{
+		width:80px;
+		height:30px;
+		margin:10px 0px 10px 40px;
+	}
+	h3{
+		padding-left:165px;
+	}
+	</style>
+	
+</head>
+<body onload="onLoad()">
+	<div class="log_in" align="center">
+		<table cellspacing="0px">
+			<tr class="top">
+				<td id="log"><h2><a href="#" id="logIn" onclick="logIn_click()">Log in</h2></td>
+				<td id="sign"><h2><a href="#" id="signUp" onclick="signUp_click()">Sign up</h2></td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="tablee" style="height:200px;" id="tableSignIn" align="center">
+		<form action="#">
+			<table style="height:200px;" class="table1">
+				<tr>
+					<td><h3>Username :</h3></td>
+					<td><input type="text" id="user1" onclick="req();" autofocus required /><span id="requ" style="color:red;"></span></td>
+				</tr>
+				<tr>
+					<td><h3>Password :</h3></td>
+					<td><input type="password" required /></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<button class="nutt" id="loginButton" type="submit" style="margin-left:300px;">Login</button>
+					<button class="nutt" type="reset" >Cancel</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<div class="tablee" style="margin-top:-202px;" id="tableSignUp" align="center">	
+		<form action="#">
+			<table class="table1">
+				<tr>
+					<td><h3>Username :</h3></td>
+					<td><input type="text" required /></td>
+				</tr>
+				<tr>
+					<td><h3>Email :</h3></td>
+					<td><input type="email" required /></td>
+				</tr>
+				<tr>
+					<td>
+						<h3>Gender :</h3>
+					</td>
+					<td>
+						<table>
+							<tr>
+								<td><h4>Female</h4></td>
+								<td><input style="height:15px; margin:0px auto 0px auto;width:25px;" type="radio" name="gen"  required /></td>
+								<td><h4>Male</h4></td>
+								<td><input style="height:15px; margin:0px auto 0px auto;width:25px;" type="radio" name="gen"  required /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td><h3>Password :</h3></td>
+					<td><input type="password" id="pass" required /></td>
+				</tr>
+				<tr>
+					<td><h3>Re-enter Password :</h3></td>
+					<td><input type="password" id="repass" required onchange="pass_check();"/></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<button style="margin-left:300px;" class="nutt" type="submit">Submit</button>
+					<button class="nutt" type="reset" >Reset</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

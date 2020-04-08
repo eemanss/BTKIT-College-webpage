@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>js tut</title>
+	<meta charset="utf-8" />
+    <script type="text/javascript">
+        function substitute()
+        {
+            var text1 = document.getElementById('mytext').value;
+            if (text1.length == 0){
+                alert('Enter a valid value');
+                return;
+            }
+            document.getElementById('heading').innerHTML= text1;
+        }
+    </script>
+</head>
+<body onload="alert('Hello World')">
+    <h1 id="heading">Javascript Tutorials</h1>
+    <input type="text" id="mytext" placeholder=":Enter Text:" />
+    <input type="submit" onclick="substitute()" />
+</body>
+</html>

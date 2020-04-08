@@ -1,0 +1,29 @@
+<html>
+<style>
+	input{
+		height:30px;width:180px;
+		border:2px dotted red;
+	}
+	#dd{
+		visibility:hidden;
+		margin-left:50px;
+	}
+</style>
+<body>
+	<script>
+		function checkDate(){
+			var date1=new Date(document.getElementById('d1').value);
+			var date2=new Date(document.getElementById('d2').value);
+			var oneday=24*60*60*1000;
+			var datediff=parseInt(date2-date1)/oneday;
+			dd=Math.abs(datediff);
+			document.getElementById('d3').value=dd;
+			document.getElementById('dd').style.visibility="visible";
+			
+		}
+	</script>
+	start date<input type="date" id="d1">
+	End date<input type="date" id="d2" onchange="checkDate()">
+	<span id="dd">diff date<input type="text" id="d3" readonly></span>
+</body>
+</html>
